@@ -2,7 +2,7 @@
 
 This command line tool, **`fsbuild`**, assist you in managing your mod project and prepare your mod for submitting it to ModHub (and releases on other platforms).
 
-```cmd
+```
 USAGE:
    fsbuild <command> [options]
 
@@ -45,20 +45,32 @@ These features are planned, but it is not certain when (if ever) I actually make
 > NOTE! TestRunner is currently disabled from both `test` and `release` until working properly.
 
 ### `build`
-Compresses the mod folder into a zip archive ready for ModHub/distribution. Supports files/folder to be excluded via a blacklist. See the configuration settings for the `.fsproj` file below.
+Compresses the mod folder into a zip archive ready for ModHub/distribution. Supports files/folder to be excluded via a blacklist. See the [configuration settings](#the-fsbuild-project-configuration-file-fsproj) for the `.fsproj` file below.
+
+The output zip archive will be named according to the variable `name` from the [project settings](#the-fsbuild-project-configuration-file-fsproj), e.g. if `name` is _'MyTestMod'_ the output file will be `FS25_MyTestMod.zip`. In addition to this file, a copy named `FS25_MyTestMod_update.zip` will be generated as well to make it easy to upload updates to ModHub.
 
 ### `test`
 Same as the `build` command, but also decompresses the zip archive and then run the TestRunner tool on these file. 
 
 _It is important that this is an unzipped version of the zip archive and not the original mod folder since some files should be excluded from the zip archive._
 
+The test command relies on the externa tool TestRunner from Giants. Please refer to the [configuration section](#configuration-optional-recommended) for detailed instructions on how to enable this feature.
+
 ### `release`
 Same as the `test` command, but with additional features to automatically bump mod version and update modDesc version to latest known version. 
 
 This build mode could also in the future apply additional rules to conform with ModHub or other specific changes desired release specific settigns (could e.g. be a flag `--preview` to generate a special mod title and mod version to indicate that is is a preview release). However, these features are not yet in place.
 
-## Translate command
-Requires a DeepL API key.
+### `translate`
+With the translate command you can automatically translate parts of your mod based. Currently, only EN, DE and FR are supported. Depending on which language you choose as source language, the automatic translation will translate to all other supported languages (currently EN, DE,and FR). Let's assume that you choose DE as source language, this means all translation will be in EN and FR.
+
+The translate command has these subcommands:
+- `title`: Translate the mod title from modDesc.xml. Does not overwrite existing titles.
+- `description`: Translate the description from the modDesc.xml. Overwrites existing descriptions.
+- `files`: Translates all the 'language_XX.xml' files. Does not overwrite existing nodes in these files.
+- `all`: Executes all three sub commands above
+
+> Note: This feature requires a DeepL API key, it is easy to get one for free. See section [configure FSBuild](#configuration-optional-recommended) for instructions.
 <TBD>
 
 ## The FSBuild project configuration file (*.fsproj*)
@@ -75,7 +87,7 @@ In essence, the .fsproj file is a JSON file looking like this:
 The project configuration file is not needed to run the tool, if it is missing it will be created on the first run. The configuration file has the following items:
 
 * **name:** The name of your mod, will be the name of the output zip archive
-* **sourceLanguage:** The language to translate _from_. Currently supports EN, DE and FR. This means that if DE is the sourceLanguage, the translations will be in EN and FR.
+* **sourceLanguage:** The language to translate _from_. Currently supports EN, DE and FR. This means that if DE is the sourceLanguage, the translations will be in EN and FR. If omitted, EN will be chosen as source language.
 * **excludeFiles:** An array of file and folder names to be excluded from the zip archive
 
 _**Note:** The `.fsproj`, `fsbuild` and your zip file will be automatically added to the blacklist and is not needed in the 'excludeFiles' section._
