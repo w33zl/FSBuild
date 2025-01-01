@@ -81,13 +81,15 @@ The project configuration file is not needed to run the tool, if it is missing i
 _**Note:** The `.fsproj`, `fsbuild` and your zip file will be automatically added to the blacklist and is not needed in the 'excludeFiles' section._
 
 ## Installation instructions
-Follow the instructions below to install FSBuild on your system. The only real mandatory step is the first one, the tool will work after that step (with limitations). However, to get a full installation it is recommended to also follow the optional steps 2-4:
-1. **Unzip** the contents of the fsbuild.zip archive into any folder (from now on called _'installation folder'_ )
-2. Add the path to the _installation folder_ in your **environment variables** (see [detailed instructions]() below)
-3. Edit (or create) the `.env` file in the _installation folder_ to **configure FSBuild** (see configuration section below for details)
+Follow the instructions below to install FSBuild on your system. The only real mandatory step is the first one, the tool will work after that step (with limitations). However, to get a full installation it is recommended to also follow the optional steps 3-5:
+
+1. Download the latest version of FSBuid
+2. **Unzip** the contents of the fsbuild.zip archive into any folder (from now on called _'installation folder'_ )
+3. Add the path to the _installation folder_ in your **environment variables** (see [detailed instructions]() below)
+4. Edit (or create) the `.env` file in the _installation folder_ to **configure FSBuild** (see configuration section below for details)
    1. Enable automatic translations with DeepL by providin an API key (it is easy and free)
    2. Enable automatic testing with TestRunner (two simple steps)
-4. **Run the command** `fsbuild help` to ensure the installation is ok, if you see usage instrucitons everything is good
+5. **Run the command** `fsbuild help` to ensure the installation is ok, if you see usage instrucitons everything is good
 
 Note: If you don't want to change your environment variables, you can instead unzip the fsbuild.exe to your mod folder, however that is not recommended. You could also skip setting up environment variables and just use the full path each time you execute the fsbuild command (e.g. `C:\YourPath\fsbuild <command>`), while not convinient it works at least.
 
@@ -95,44 +97,48 @@ Note: If you don't want to change your environment variables, you can instead un
 The benefit of adding your _installation folder_ to your environment variables is that the `fsbuild` command will be available in any folder and you can easily use it in any current or future mod folder. And as long as you replace the files in the same location on future updates of FSBuild, you don't need to ever change the environment variables, it will just work.
 
 To add or change the environment variables for FSBuild, follow these steps:
-1. Open your start menu and search for 'envir' and you should see an "Edit the system environment variables"
-2. Click on the button "Environment Variables"
-3. Now you can either add a new _user variable_ for FSBuild, which is the recommended method, or you can change the global _system variable_ `PATH`, which is not recommended
+1. Open your start menu and search for 'envir' and you should see an _"Edit the system environment variables"_ [[screenshot](https://github.com/w33zl/FSBuild/blob/master/images/w33zl_fsbuild_environment_variables_search.jpg?raw=true)]
+2. Click on _"Edit the system environment variables"_
+3. Click on the button "Environment Variables" [[screenshot](https://github.com/w33zl/FSBuild/blob/master/images/w33zl_fsbuild_environment_variables_open.jpg?raw=true)]
+4. Now you can either add a new _user variable_ for FSBuild, which is the recommended method, or you can change the global _system variable_ `PATH`, which is not recommended
    * Add a _**User variable**_ (easiest but only works for current user):
-      1.  Click the "New..." button below the list of _"User Variables for [NAME]"_
-      2.  In the _Edit User Variable_ popup window, set the name to `FSBuild` and the _Variable Value_ to your _installation folder_ path (e.g. `C:\Program Files (x86)\Farming Simulator 2025\fsbuild`)
+      1.  Click the "New..." button below the list of _"User Variables for [NAME]"_ [[screenshot](https://github.com/w33zl/FSBuild/blob/master/images/w33zl_fsbuild_user_environment_variables_step1.jpg?raw=true)]
+      2.  In the _Edit User Variable_ popup window, set the name to `FSBuild` and the _Variable Value_ to your _installation folder_ path (e.g. `C:\Program Files (x86)\Farming Simulator 2025\fsbuild`) [[screenshot](https://github.com/w33zl/FSBuild/blob/master/images/w33zl_fsbuild_user_environment_variables_step2.jpg?raw=true)]
       3.  Click Ok
    *  Add a _**System variable**_ (higher risk of errors but works for all users):
-      1.  Look in the list _"System Variables"_ for an item named `PATH`
+      1.  Look in the list _"System Variables"_ for an item named `PATH` [[screenshot](https://github.com/w33zl/FSBuild/blob/master/images/w33zl_fsbuild_system_environment_variables_step1.jpg?raw=true)]
       2.  Click the "Edit..." button
-      3.  In the popup window, click the 
-      4.  Click the "New..." button
-      5.  Paste in the path to your _installation folder_ (e.g. `C:\Program Files (x86)\Farming Simulator 2025\fsbuild`)
+      3.  In the popup window, click the "New..." button [[screenshot](https://github.com/w33zl/FSBuild/blob/master/images/w33zl_fsbuild_system_environment_variables_step2.jpg?raw=true)]
+      5.  Paste in the path to your _installation folder_ (e.g. `C:\Program Files (x86)\Farming Simulator 2025\fsbuild`) [[screenshot](https://github.com/w33zl/FSBuild/blob/master/images/w33zl_fsbuild_system_environment_variables_step2.jpg?raw=true)]
       6.  Click Ok
       7.  Click Ok
    *  
-4. After you have added a user or system variable, you need to logout of your system for the changes to have effect
-5. Open a terminal window/command prompt, open any folder (except the _installation folder_) and try the `fsbuild` command.
+5. After you have added a user or system variable, you need to logout of your system for the changes to have effect
+6. Open a terminal window/command prompt, open any folder (except the _installation folder_) and try the `fsbuild` command.
 
-ADD IMAGES
-
+[<img src="https://github.com/w33zl/FSBuild/blob/master/images/w33zl_fsbuild_environment_variables_search.jpg?raw=true" alt="drawing" height="100"/>](https://github.com/w33zl/FSBuild/blob/master/images/w33zl_fsbuild_environment_variables_search.jpg?raw=true)
+[<img src="https://github.com/w33zl/FSBuild/blob/master/images/w33zl_fsbuild_environment_variables_open.jpg?raw=true" alt="drawing" height="100"/>](https://github.com/w33zl/FSBuild/blob/master/images/w33zl_fsbuild_environment_variables_open.jpg?raw=true)
+[<img src="https://github.com/w33zl/FSBuild/blob/master/images/w33zl_fsbuild_user_environment_variables_step1.jpg?raw=true" alt="drawing" height="100"/>](https://github.com/w33zl/FSBuild/blob/master/images/w33zl_fsbuild_user_environment_variables_step1.jpg?raw=true)
+[<img src="https://github.com/w33zl/FSBuild/blob/master/images/w33zl_fsbuild_user_environment_variables_step2.jpg?raw=true" alt="drawing" height="50"/>](https://github.com/w33zl/FSBuild/blob/master/images/w33zl_fsbuild_user_environment_variables_step2.jpg?raw=true)
+[<img src="https://github.com/w33zl/FSBuild/blob/master/images/w33zl_fsbuild_system_environment_variables_step1.jpg?raw=true" alt="drawing" height="100"/>](https://github.com/w33zl/FSBuild/blob/master/images/w33zl_fsbuild_system_environment_variables_step1.jpg?raw=true)
+[<img src="https://github.com/w33zl/FSBuild/blob/master/images/w33zl_fsbuild_system_environment_variables_step2.jpg?raw=true" alt="drawing" height="100"/>](https://github.com/w33zl/FSBuild/blob/master/images/w33zl_fsbuild_system_environment_variables_step2.jpg?raw=true)
 
 ### Configuration (optional, recommended)
 While these steps is also optional, it is highly recommended to take your time finishing these additional steps to use the full potential of FSBuild.
 
 Open up your `.env` file from the _installation folder_ in a text editor, it should look like this:
 
-```bash
+```ini
 VERBOSE=false
-DEEPL_API_KEY="2f1e4b6a-0d7f-4c6a-9e4b-1234567890ab"
-GAME_DIR="Q:\Games\Farming Simulator 25"
-TEST_RUNNER_DIR="Q:\Games\FSTools\testRunner"
+DEEPL_API_KEY=2f1e4b6a-0d7f-4c6a-9e4b-1234567890ab
+GAME_DIR=Q:\Games\Farming Simulator 25
+TEST_RUNNER_DIR=Q:\Games\FSTools\testRunner
 ```
 
 1. **Configure TestRunner**
-   1. Download the latest TestRunner from Giants GDN webpage _(unfortunately, there is currentlyu noo way for me to automatically download it for you)_
+   1. Download the latest TestRunner from [Giants GDN webpage](https://gdn.giants-software.com/downloads.php) _(unfortunately, there is currentlyu no way for me to automatically download it for you)_
    2. Unzip the contents of the TestRunner_public_X_Y_Z.zip file to any folder (e.g. `C:\Programs\testRunner`)
-   3. Add the path from step 1.2 to the `TEST_RUNNER_DIR` variable in your _.env_ file (e.g. `TEST_RUNNER_DIR="C:\Programs\testRunner"`)
+   3. Add the path from step 1.2 to the `TEST_RUNNER_DIR` variable in your _.env_ file (e.g. `TEST_RUNNER_DIR=C:\Programs\testRunner`)
    4. Save the _.env_ file
 2. **Configure automatic translation with DeepL**
    1. Go to the DeepL website https://www.deepl.com/pro-api
@@ -141,11 +147,11 @@ TEST_RUNNER_DIR="Q:\Games\FSTools\testRunner"
    4. Follow the instructions to create an free account
       - The free account has some limitations, however, what I could see this far this free account is well enough for our use cases
    5. After completing the signup process and validating your email, log in to your accout: https://www.deepl.com/en/your-account/subscription
-   6. Go to the "API Keys" tab
+   6. Go to the "API Keys" tab [[screenshot](https://github.com/w33zl/FSBuild/blob/master/images/w33zl_fsbuild_deepl_apikey.jpg?raw=true)]
    7. If there is no key in the list, create a new key with any name of your choice
    8. In the list of keys, choose one key to use for FSBuild
    9. In the column API key for that key, click the copy button right next to the text similar to this `9a1b******q:fx`
-   10. Paste the copied API key into the `DEEPL_API_KEY` in your _.env_ file (e.g. `DEEPL_API_KEY="2f1e4b6a-0d7f-4c6a-9e4b-1234567890ab"`)
+   10. Paste the copied API key into the `DEEPL_API_KEY` in your _.env_ file (e.g. `DEEPL_API_KEY=2f1e4b6a-0d7f-4c6a-9e4b-1234567890ab`)
    11. Save the _.env_ file
 3.  **Verbose logging**
     1.  If you want additional log items to be printed while using the tool, e.g. to better understand what is happening "under the hood" or if you need to debug issues with FSBuild, simply change 
@@ -153,10 +159,27 @@ TEST_RUNNER_DIR="Q:\Games\FSTools\testRunner"
     1.  As a final step, make sure you have uncommented all the variables that you have change, i.e. remove the leading `#` before the variable name, e.g. change `# VERBOSE=false` to `VERBOSE=false`
     2.  Save the _.env_ file
 
+#### Where to find your API key:
+
+<img src="https://github.com/w33zl/FSBuild/blob/master/images/w33zl_fsbuild_deepl_apikey.jpg?raw=true" alt="drawing" height="100"/>
+
+
+## Want more modders resources?
+Check out the following projects:
+
+| [Developer PowerTools](https://github.com/w33zl/FS25_DevTools) | [DataDump](https://github.com/w33zl/FS25_DataDump)  | [Script Binding Converter](https://github.com/w33zl/FS25-Script-Binding-Converter) | [GE Hotkeys and Macros](https://github.com/w33zl/GE-Hotkeys-and-Macros) | [GE Toolbox](https://github.com/w33zl/GE-Toolbox) | [GE Object Distributor](https://github.com/w33zl/GE-Object-Distributor) |
+
+
 
 ## Like the work I do?
-I love to hear you feedback so please check out my [Facebook](https://www.facebook.com/w33zl). If you want to support me you can become my [Patron](https://www.patreon.com/wzlmodding) or buy me a [Ko-fi](https://ko-fi.com/w33zl) :heart:
+I love to hear you feedback so please check out my [Facebook](https://www.facebook.com/w33zl). If you want to support me you can become my [Patron](https://www.patreon.com/wzlmodding) or buy me a [Ko-fi](https://ko-fi.com/w33zl) ❤️
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/X8X0BB65P) [![Support me on Patreon](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fshieldsio-patreon.vercel.app%2Fapi%3Fusername%3Dwzlmodding%3F%26type%3Dpatrons&style=for-the-badge)](https://patreon.com/wzlmodding?)
 
 
+### Download my mods
+To download my mods, please visit my FS19, FS22 or FS25 page on the official Giants ModHub page:
+
+[![My FS22 Mods](https://github.com/w33zl/w33zl/raw/main/GitHubIcons_MH_FS19.png)](https://www.farming-simulator.com/mods.php?title=fs2019&filter=org&org_id=140742)
+[![My FS22 Mods](https://github.com/w33zl/w33zl/raw/main/GitHubIcons_MH_FS22.png)](https://www.farming-simulator.com/mods.php?title=fs2022&filter=org&org_id=140742)
+[![My FS25 Mods](https://github.com/w33zl/w33zl/raw/main/GitHubIcons_MH_FS25.png)](https://www.farming-simulator.com/mods.php?title=fs2025&filter=org&org_id=140742)
