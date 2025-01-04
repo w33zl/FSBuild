@@ -2,20 +2,9 @@
 
 This command line tool, **`fsbuild`**, assist you in managing your mod project and prepare your mod for submitting it to ModHub (and releases on other platforms).
 
-```
-USAGE:
-   fsbuild <command> [options]
+![](images/wzlmodding_fsbuild_main_usage_help.png)
 
-COMMANDS:
-   build        Build the mod - create a zip file from the mod folder
-   test         Test the mod - create a zip file and run TestRunner
-   release      Prepare for release - create a zip file, run TestRunner and (optionally) bump version info
-   translate    Translate the mod - automatically translates the title, description and or the translation XML filesx
-   bump         Bump mod version - increases the mod version (major, minor or revision) and updates the modDesc automatically
-   help         Print the help text (you can also use --help with any command)
-```
-
-Each subcommand might have additional options, these can be printed using the `--help` flag, e.g. `fsbuild build --help`.
+Commands: [build](#build) | [test](#test) | [release](#release) | [bump](#bump-majorminorpatch) | [translate](#translate)
 
 For more details on each subcommand, see separate sections below.
 
@@ -42,6 +31,22 @@ These features are planned, but it is not certain when (if ever) I actually make
 
 ## How to use FSBuild
 
+```
+USAGE:
+   fsbuild <command> [options]
+
+COMMANDS:
+   build        Build the mod - create a zip file from the mod folder
+   test         Test the mod - create a zip file and run TestRunner
+   release      Prepare for release - create a zip file, run TestRunner and (optionally) bump version info
+   translate    Translate the mod - automatically translates the title, description and or the translation XML filesx
+   bump         Bump mod version - increases the mod version (major, minor or revision) and updates the modDesc automatically
+   help         Print the help text (you can also use --help with any command)
+```
+
+Each subcommand might have additional options, these can be printed using the `--help` flag, e.g. `fsbuild build --help`.
+
+
 ### `build`
 Compresses the mod folder into a zip archive ready for ModHub/distribution. Supports files/folder to be excluded via a blacklist. See the [configuration settings](#the-fsbuild-project-configuration-file-fsproj) for the `.fsproj` file below.
 
@@ -58,12 +63,25 @@ The output zip archive will be named according to the variable `name` from the [
 
 _**Note:** Bumping version is temporarily done before archiving the mod, however the change will not be permanent (saved to `modDesc.xml`) if the build (or test) fails._
 
+![alt text](images/wzlmodding_fsbuild_tag_bump_version.png)
+
 ### `test`
 Same as the `build` command, but also decompresses the zip archive and then run the TestRunner tool on these file. 
 
 _It is important that this is an unzipped version of the zip archive and not the original mod folder since some files should be excluded from the zip archive._
 
 The test command relies on the externa tool TestRunner from Giants. Please refer to the [configuration section](#configuration-optional-recommended) for detailed instructions on how to enable this feature.
+
+#### Quick test summary
+After the completed execution of TestRunner you will get an overview of the outcome.
+
+_Successful TestRunner test:_
+![alt text](images/wzlmodding_test_testrunner_pass.png)
+
+_Failed TestRunner test:_
+![alt text](images/wzlmodding_test_testrunner_failed.png)
+
+If the test did fail, FSBuild will show a red "FAIL" text as well as ask if you want to automatically open the test report (which is not needed when the test passed). In most cases you don't need to review the report since most of the information is already present in the console. 
 
 ### `release`
 Same as the `test` command, but with additional features to automatically bump mod version and update modDesc version to latest known version. 
@@ -89,6 +107,9 @@ _**Note:** all three commands will reset build version to 0._
 
 
 ### `translate`
+
+![FSBuild translate command screenshot](images/wzlmodding_fsbuild_translate.png)
+
 With the translate command you can automatically translate parts of your mod based. Currently, only EN, DE and FR are supported. Depending on which language you choose as source language, the automatic translation will translate to all other supported languages (currently EN, DE,and FR). Let's assume that you choose DE as source language, this means all translation will be in EN and FR.
 
 The translate command has these subcommands:
