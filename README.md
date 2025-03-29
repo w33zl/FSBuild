@@ -1,8 +1,10 @@
 # FSBuild - The build and management tool for Farming Simulator mods
 
-This command line tool, **`fsbuild`**, assist you in managing your mod project and prepare your mod for submitting it to ModHub (and releases on other platforms).
+The command line tool, **`fsbuild`**, assist you in managing your mod project and prepare your mod for submitting it to ModHub (and releases on other platforms). The tool simplifies and speed up some of the less creative and tedious tasks associated with modding for Farming Simulator, e.g. like creating your zip archive, convert images or run TestRunner. Think of it like a quality-of-life "swiss army tool" for FS modding.
 
 ![](images/wzlmodding_fsbuild_main_usage_help.png)
+
+<iframe frameborder="0" src="https://itch.io/embed/3383340?border_width=2&amp;bg_color=151B23&amp;fg_color=e8e8e8&amp;link_color=ADCC07&amp;border_color=2F353D" width="554" height="169"><a href="https://w33zl.itch.io/fs-build">FS Build by w33zl</a></iframe>
 
 Commands: [build](#build) | [test](#test) | [release](#release) | [bump](#bump-majorminorpatch) | [translate](#translate)
 
@@ -144,7 +146,7 @@ _**Note:** The `.fsproj`, `fsbuild` and your zip file will be automatically adde
 ## Installation instructions
 Follow the instructions below to install FSBuild on your system. The only real mandatory step is the first two steps, the tool will work after this (with limitations). However, to get a full installation it is recommended to also follow the optional steps 3-6:
 
-1. Download the latest version of FSBuid
+1. Download the latest version of FSBuild from [w33zl.itch.io/fs-build](https://w33zl.itch.io/fs-build)
 2. **Unzip** the contents of the fsbuild.zip archive into any folder (from now on called _'installation folder'_ )
 3. Add the path to the _installation folder_ in your **environment variables** (see [detailed instructions]() below)
 4. Create the `fsbuild.ini` in your `%localappdata%\fsbuild` folder 
