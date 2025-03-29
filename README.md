@@ -4,7 +4,9 @@ The command line tool, **`fsbuild`**, assist you in managing your mod project an
 
 ![](images/wzlmodding_fsbuild_main_usage_help.png)
 
-![Download FSBuild from w33zl.itch.io/fs-build](images/WZLModding_FSBuild_DownloadButton.png)
+[![Download FSBuild from w33zl.itch.io/fs-build](images/WZLModding_FSBuild_DownloadButton.png)](https://w33zl.itch.io/fs-build)
+
+
 
 Commands: [build](#build) | [test](#test) | [release](#release) | [bump](#bump-majorminorpatch) | [translate](#translate)
 
